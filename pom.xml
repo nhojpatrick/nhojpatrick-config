@@ -813,18 +813,10 @@
 			</dependency>
 			<dependency>
 				<groupId>com.github.nhojpatrick.hamcrest</groupId>
-				<artifactId>nhojpatrick-hamcrest-collections</artifactId>
+				<artifactId>nhojpatrick-hamcrest-bom</artifactId>
 				<version>${version.com.github.nhojpatrick.hamcrest}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.nhojpatrick.hamcrest</groupId>
-				<artifactId>nhojpatrick-hamcrest-lang</artifactId>
-				<version>${version.com.github.nhojpatrick.hamcrest}</version>
-			</dependency>
-			<dependency>
-				<groupId>com.github.nhojpatrick.hamcrest</groupId>
-				<artifactId>nhojpatrick-hamcrest-optionals</artifactId>
-				<version>${version.com.github.nhojpatrick.hamcrest}</version>
+				<type>pom</type>
+				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>com.github.spotbugs</groupId>
@@ -933,7 +925,7 @@
 		<plugins.github.ekryd.sortpom-maven-plugin>3.0.0</plugins.github.ekryd.sortpom-maven-plugin>
 		<plugins.takari.maven>0.7.7</plugins.takari.maven>
 		<!-- dependency versions -->
-		<version.com.github.nhojpatrick.hamcrest>[1.0.3,1.0.99)</version.com.github.nhojpatrick.hamcrest>
+		<version.com.github.nhojpatrick.hamcrest>1.0.3</version.com.github.nhojpatrick.hamcrest>
 		<version.com.github.spotbugs>4.4.2</version.com.github.spotbugs>
 		<version.com.puppycrawl.tools.checkstyle>9.0.1</version.com.puppycrawl.tools.checkstyle>
 		<version.org.apache.commons.lang3>3.12.0</version.org.apache.commons.lang3>
