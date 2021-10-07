@@ -367,7 +367,7 @@ workflows:
             parameters:
               qa_step_profile: [
                 "checkstyle",
-#                "javadoc",
+                "javadoc",
                 "pmd",
                 "spotbugs"
               ]
