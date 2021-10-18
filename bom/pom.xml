@@ -50,6 +50,6 @@
 	<!--distributionManagement / -->
 	<!--properties / -->
 	<properties>
-		<project.Automatic-Module-Name>com.github.nhojpatrick.config.bom</project.Automatic-Module-Name>
+		<project.Automatic-Module-Name>com.github.nhojpatrick.config1.bom</project.Automatic-Module-Name>
 	</properties>
 </project>

@@ -46,7 +46,7 @@
 	<!--distributionManagement / -->
 	<!--properties / -->
 	<properties>
-		<project.Automatic-Module-Name>com.github.nhojpatrick.config.all</project.Automatic-Module-Name>
+		<project.Automatic-Module-Name>com.github.nhojpatrick.config1.all</project.Automatic-Module-Name>
 		<project.surefire.argLine.jpms.module></project.surefire.argLine.jpms.module>
 		<maven.javadoc.failOnError>false</maven.javadoc.failOnError>
 		<spotbugs.skip>true</spotbugs.skip>

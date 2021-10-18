@@ -1,2 +1,2 @@
-module com.github.nhojpatrick.config.bom {
+module com.github.nhojpatrick.config1.bom {
 }

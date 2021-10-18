@@ -17,7 +17,7 @@
 /**
  * nhojpatrick Config.
  * <p>
- * nhojpatrick-config-bom is provide so a single dependency can be used,
+ * nhojpatrick-config-core is provide so a single dependency can be used,
  * instead of having to add each dependency separately.
  */
-package com.github.nhojpatrick.config.bom;
+package com.github.nhojpatrick.config1.core;

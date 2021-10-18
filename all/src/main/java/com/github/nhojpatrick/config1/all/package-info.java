@@ -17,7 +17,7 @@
 /**
  * nhojpatrick Config.
  * <p>
- * nhojpatrick-config-core is provide so a single dependency can be used,
+ * nhojpatrick-config-all is provide so a single dependency can be used,
  * instead of having to add each dependency separately.
  */
-package com.github.nhojpatrick.config.core;
+package com.github.nhojpatrick.config1.all;
