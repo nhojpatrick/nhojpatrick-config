@@ -926,7 +926,7 @@
 			--add-opens org.junit.platform.commons/org.junit.platform.commons.logging=ALL-UNNAMED</project.surefire.argLine.jpms.global>
 		<project.surefire.argLine.jpms.module></project.surefire.argLine.jpms.module>
 		<!-- plugin versions -->
-		<plugins.com.github.spotbugs.spotbugs-maven-plugin>4.4.2.1</plugins.com.github.spotbugs.spotbugs-maven-plugin>
+		<plugins.com.github.spotbugs.spotbugs-maven-plugin>4.4.2.2</plugins.com.github.spotbugs.spotbugs-maven-plugin>
 		<plugins.github.ekryd.sortpom-maven-plugin>3.0.0</plugins.github.ekryd.sortpom-maven-plugin>
 		<plugins.takari.maven>0.7.7</plugins.takari.maven>
 		<!-- dependency versions -->
