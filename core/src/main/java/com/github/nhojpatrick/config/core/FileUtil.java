@@ -18,7 +18,7 @@ public class FileUtil {
             throw new IllegalArgumentException(String.format("Invalid safeDirectoryName '%s'", directoryName));
         }
 
-        final String safeDirectoryName = directoryName;
+        final String safeDirectoryName = trimToEmpty(directoryName);
 
         LOGGER.debug("safeDirectoryName('{}') return '{}'", directoryName, safeDirectoryName);
         return safeDirectoryName;
