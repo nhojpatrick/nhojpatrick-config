@@ -18,7 +18,13 @@ public class FileUtil {
             throw new IllegalArgumentException(String.format("Invalid safeDirectoryName '%s'", directoryName));
         }
 
-        final String safeDirectoryName = trimToEmpty(directoryName);
+        final String safeDirectoryName = trimToEmpty(directoryName)
+                .replaceAll("^[ -_]+", "") // remove leading ' -_'
+                .replaceAll("[ -_]+$", ""); // remove trailing ' -_'
+
+        if (isEmpty(trimToEmpty(safeDirectoryName))) {
+            throw new IllegalArgumentException(String.format("Invalid safeDirectoryName '%s'", directoryName));
+        }
 
         LOGGER.debug("safeDirectoryName('{}') return '{}'", directoryName, safeDirectoryName);
         return safeDirectoryName;
