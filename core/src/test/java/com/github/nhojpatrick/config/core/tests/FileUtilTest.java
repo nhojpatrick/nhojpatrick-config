@@ -32,6 +32,12 @@ public class FileUtilTest {
     private static Stream<Arguments> safeDirectoryName_invalid_src() {
         return Stream.of(
                 //
+                Arguments.of(" ", "Invalid safeDirectoryName ' '"),
+                //
+                Arguments.of("  ", "Invalid safeDirectoryName '  '"),
+                //
+                Arguments.of("   ", "Invalid safeDirectoryName '   '"),
+                //
                 Arguments.of(null, "Invalid safeDirectoryName 'null'")
         );
     }
@@ -45,6 +51,16 @@ public class FileUtilTest {
 
     private static Stream<Arguments> safeDirectoryName_valid_src() {
         return Stream.of(
+                //
+                Arguments.of("qwerty ", "qwerty"),
+                Arguments.of(" qwerty", "qwerty"),
+                //
+                Arguments.of(" qwerty ", "qwerty"),
+                //
+                Arguments.of("qwerty   ", "qwerty"),
+                Arguments.of("   qwerty", "qwerty"),
+                //
+                Arguments.of("   qwerty   ", "qwerty"),
                 //
                 Arguments.of("qwerty", "qwerty")
         );
