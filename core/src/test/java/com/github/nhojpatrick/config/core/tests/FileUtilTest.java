@@ -197,6 +197,13 @@ public class FileUtilTest {
                 Arguments.of("edc..rfv..tgb", "edc.rfv.tgb"),
                 Arguments.of("edc...rfv...tgb", "edc.rfv.tgb"),
                 //
+                Arguments.of("zaq-xsw", "zaq-xsw"),
+                Arguments.of("zaq--xsw", "zaq-xsw"),
+                Arguments.of("zaq---xsw", "zaq-xsw"),
+                Arguments.of("cde-vfr-bgt", "cde-vfr-bgt"),
+                Arguments.of("cde--vfr--bgt", "cde-vfr-bgt"),
+                Arguments.of("cde---vfr---bgt", "cde-vfr-bgt"),
+                //
                 Arguments.of("qwerty", "qwerty")
         );
     }
