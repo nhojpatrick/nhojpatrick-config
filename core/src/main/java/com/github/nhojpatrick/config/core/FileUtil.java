@@ -19,6 +19,7 @@ public class FileUtil {
         }
 
         final String safeDirectoryName = trimToEmpty(directoryName)
+                .replaceAll("[^a-zA-Z0-9-_.]", "_") // replace not allowed characters
                 .replaceAll("[..]+", ".") // squash multiple '.'
                 .replaceAll("[--]+", "-") // squash multiple '-'
                 .replaceAll("[__]+", "_") // squash multiple '_'
