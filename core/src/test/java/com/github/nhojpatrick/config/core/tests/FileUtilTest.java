@@ -204,6 +204,13 @@ public class FileUtilTest {
                 Arguments.of("cde--vfr--bgt", "cde-vfr-bgt"),
                 Arguments.of("cde---vfr---bgt", "cde-vfr-bgt"),
                 //
+                Arguments.of("zxc_vbn", "zxc_vbn"),
+                Arguments.of("zxc__vbn", "zxc_vbn"),
+                Arguments.of("zxc___vbn", "zxc_vbn"),
+                Arguments.of("asd_fgh_jkl", "asd_fgh_jkl"),
+                Arguments.of("asd__fgh__jkl", "asd_fgh_jkl"),
+                Arguments.of("asd___fgh___jkl", "asd_fgh_jkl"),
+                //
                 Arguments.of("qwerty", "qwerty")
         );
     }

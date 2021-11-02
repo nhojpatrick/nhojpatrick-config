@@ -21,6 +21,7 @@ public class FileUtil {
         final String safeDirectoryName = trimToEmpty(directoryName)
                 .replaceAll("[..]+", ".") // squash multiple '.'
                 .replaceAll("[--]+", "-") // squash multiple '-'
+                .replaceAll("[__]+", "_") // squash multiple '_'
                 .replaceAll("^[ -_]+", "") // remove leading ' -_'
                 .replaceAll("[ -_]+$", ""); // remove trailing ' -_'
 
