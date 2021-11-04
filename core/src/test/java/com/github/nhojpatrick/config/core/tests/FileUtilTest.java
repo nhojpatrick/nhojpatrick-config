@@ -190,6 +190,13 @@ public class FileUtilTest {
                 //
                 Arguments.of(" -_ -_ -_qwerty -_ -_ -_", "qwerty"),
                 //
+                Arguments.of("qaz.wsx", "qaz.wsx"),
+                Arguments.of("qaz..wsx", "qaz.wsx"),
+                Arguments.of("qaz...wsx", "qaz.wsx"),
+                Arguments.of("edc.rfv.tgb", "edc.rfv.tgb"),
+                Arguments.of("edc..rfv..tgb", "edc.rfv.tgb"),
+                Arguments.of("edc...rfv...tgb", "edc.rfv.tgb"),
+                //
                 Arguments.of("qwerty", "qwerty")
         );
     }
