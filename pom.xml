@@ -802,6 +802,15 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<?SORTPOM IGNORE?>
+				<groupId>org.junit</groupId>
+				<artifactId>junit-bom</artifactId>
+				<version>${version.org.junit}</version>
+				<type>pom</type>
+				<scope>import</scope>
+				<?SORTPOM RESUME?>
+			</dependency>
+			<dependency>
 				<groupId>com.github.nhojpatrick.config</groupId>
 				<artifactId>nhojpatrick-config-all</artifactId>
 				<version>[${project.version},${project.custom.next.version})</version>
@@ -859,13 +868,6 @@
 				<groupId>org.hamcrest</groupId>
 				<artifactId>hamcrest</artifactId>
 				<version>${version.org.hamcrest}</version>
-			</dependency>
-			<dependency>
-				<groupId>org.junit</groupId>
-				<artifactId>junit-bom</artifactId>
-				<version>${version.org.junit}</version>
-				<type>pom</type>
-				<scope>import</scope>
 			</dependency>
 			<dependency>
 				<groupId>org.junit-pioneer</groupId>
