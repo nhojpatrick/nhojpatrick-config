@@ -307,7 +307,7 @@
 				<plugin>
 					<groupId>org.codehaus.mojo</groupId>
 					<artifactId>build-helper-maven-plugin</artifactId>
-					<version>3.2.0</version>
+					<version>${plugins.codehaus.build-helper-maven-plugin}</version>
 					<executions>
 						<execution>
 							<id>remove-project-artifact-default</id>
@@ -937,6 +937,7 @@
 			--add-opens org.junit.platform.commons/org.junit.platform.commons.logging=ALL-UNNAMED</project.surefire.argLine.jpms.global>
 		<project.surefire.argLine.jpms.module></project.surefire.argLine.jpms.module>
 		<!-- plugin versions -->
+		<plugins.codehaus.build-helper-maven-plugin>3.2.0</plugins.codehaus.build-helper-maven-plugin>
 		<plugins.com.github.spotbugs.spotbugs-maven-plugin>4.5.0.0</plugins.com.github.spotbugs.spotbugs-maven-plugin>
 		<plugins.github.ekryd.sortpom-maven-plugin>3.0.0</plugins.github.ekryd.sortpom-maven-plugin>
 		<plugins.maven.maven-checkstyle-plugin>3.1.2</plugins.maven.maven-checkstyle-plugin>
