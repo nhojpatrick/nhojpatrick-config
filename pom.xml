@@ -778,20 +778,8 @@
 	<!--modules / -->
 	<modules>
 		<module>all</module>
-		<!--		<module>all-steps</module>-->
 		<module>bom</module>
 		<module>core</module>
-		<!--		<module>json-core</module>-->
-		<!--		<module>json-jodabeans</module>-->
-		<!--		<module>json-map</module>-->
-		<!--		<module>json-map-steps</module>-->
-		<!--		<module>json-transform</module>-->
-		<!--		<module>json-transform-steps</module>-->
-		<!--		<module>json-transformations</module>-->
-		<!--		<module>state</module>-->
-		<!--		<module>state-steps</module>-->
-		<!--		<module>testing-internal/objects</module>-->
-		<!--		<module>testing-internal/steps</module>-->
 	</modules>
 	<!--repositories / -->
 	<!--pluginRepositories / -->
