@@ -206,7 +206,7 @@ commands:
       - run: mkdir -p ~/.m2/repository
       - run:
           name: "Tidy Local Maven Repo of project before save cache"
-          command: rm -rf ~/.m2/repository/com/github/nhojpatrick/config
+          command: rm -rf ~/.m2/repository/com/github/nhojpatrick/
           when: always
       - run:
           name: "Tidy Local Maven Repo of lastUpdated"
@@ -234,7 +234,7 @@ jobs:
   jdk8:
     docker:
       - image: cimg/openjdk:8.0
-    resource_class: medium
+    resource_class: small
     steps:
       - install_openjdk_11
       - setup_std_toolchain
@@ -249,7 +249,7 @@ jobs:
   jdk8_tests_jdk11:
     docker:
       - image: cimg/openjdk:8.0
-    resource_class: medium
+    resource_class: small
     steps:
       - install_openjdk_11
       - setup_std_toolchain
@@ -264,7 +264,7 @@ jobs:
   jdk11:
     docker:
       - image: cimg/openjdk:11.0
-    resource_class: medium
+    resource_class: small
     steps:
       - setup_openjdk_11_toolchain
       - checkout
@@ -278,7 +278,7 @@ jobs:
   jdk17:
     docker:
       - image: cimg/openjdk:17.0
-    resource_class: medium
+    resource_class: small
     steps:
       - setup_openjdk_17_toolchain
       - checkout
