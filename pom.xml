@@ -79,7 +79,7 @@
 							<plugin>
 								<groupId>com.mebigfatguy.sb-contrib</groupId>
 								<artifactId>sb-contrib</artifactId>
-								<version>7.4.7</version>
+								<version>${version.com.mebigfatguy.sb-contrib.sb-contrib}</version>
 							</plugin>
 							<plugin>
 								<groupId>jp.skypencil.findbugs.slf4j</groupId>
@@ -983,6 +983,7 @@
 		<!-- dependency versions -->
 		<version.com.github.nhojpatrick.hamcrest>1.0.3</version.com.github.nhojpatrick.hamcrest>
 		<version.com.github.spotbugs>4.5.3</version.com.github.spotbugs>
+		<version.com.mebigfatguy.sb-contrib.sb-contrib>7.4.7</version.com.mebigfatguy.sb-contrib.sb-contrib>
 		<version.com.puppycrawl.tools.checkstyle>9.2.1</version.com.puppycrawl.tools.checkstyle>
 		<version.jp.skypencil.findbugs.slf4j.bug-pattern>1.5.0</version.jp.skypencil.findbugs.slf4j.bug-pattern>
 		<version.junit>4.13.2</version.junit>
