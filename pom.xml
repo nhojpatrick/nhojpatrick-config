@@ -133,26 +133,26 @@
 					<!--							<arg>-Xlint:unchecked</arg>-->
 					<!--						</compilerArgs>-->
 					<!--					</configuration>-->
-					<executions>
-						<execution>
-							<id>java11-main</id>
-							<phase>compile</phase>
-							<goals>
-								<goal>compile</goal>
-							</goals>
-							<configuration>
-								<release>11</release>
-								<jdkToolchain>
-									<version>11</version>
-								</jdkToolchain>
-								<compileSourceRoots>
-									<compileSourceRoot>${project.basedir}/src/main/java</compileSourceRoot>
-									<compileSourceRoot>${project.basedir}/src/main/java11</compileSourceRoot>
-								</compileSourceRoots>
-								<multiReleaseOutput>true</multiReleaseOutput>
-							</configuration>
-						</execution>
-					</executions>
+					<!--					<executions>-->
+					<!--						<execution>-->
+					<!--							<id>java11-main</id>-->
+					<!--							<phase>compile</phase>-->
+					<!--							<goals>-->
+					<!--								<goal>compile</goal>-->
+					<!--							</goals>-->
+					<!--							<configuration>-->
+					<!--								<release>11</release>-->
+					<!--								<jdkToolchain>-->
+					<!--									<version>11</version>-->
+					<!--								</jdkToolchain>-->
+					<!--								<compileSourceRoots>-->
+					<!--									<compileSourceRoot>${project.basedir}/src/main/java</compileSourceRoot>-->
+					<!--									<compileSourceRoot>${project.basedir}/src/main/java11</compileSourceRoot>-->
+					<!--								</compileSourceRoots>-->
+					<!--								<multiReleaseOutput>true</multiReleaseOutput>-->
+					<!--							</configuration>-->
+					<!--						</execution>-->
+					<!--					</executions>-->
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -808,6 +808,9 @@
 		<module>all</module>
 		<module>bom</module>
 		<module>core</module>
+		<!--<module>env</module>-->
+		<!--<module>files</module>-->
+		<!--<module>properties</module>-->
 	</modules>
 	<!--repositories / -->
 	<!--pluginRepositories / -->
@@ -846,6 +849,21 @@
 				<version>[${project.version},${project.custom.next.version})</version>
 			</dependency>
 			<dependency>
+				<groupId>com.github.nhojpatrick.config</groupId>
+				<artifactId>nhojpatrick-config-env</artifactId>
+				<version>[${project.version},${project.custom.next.version})</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.nhojpatrick.config</groupId>
+				<artifactId>nhojpatrick-config-files</artifactId>
+				<version>[${project.version},${project.custom.next.version})</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.nhojpatrick.config</groupId>
+				<artifactId>nhojpatrick-config-properties</artifactId>
+				<version>[${project.version},${project.custom.next.version})</version>
+			</dependency>
+			<dependency>
 				<groupId>com.github.nhojpatrick.hamcrest</groupId>
 				<artifactId>nhojpatrick-hamcrest-bom</artifactId>
 				<version>${version.com.github.nhojpatrick.hamcrest}</version>
@@ -867,6 +885,11 @@
 				<artifactId>checkstyle</artifactId>
 				<version>${version.com.puppycrawl.tools.checkstyle}</version>
 			</dependency>
+			<dependency>
+				<groupId>commons-beanutils</groupId>
+				<artifactId>commons-beanutils</artifactId>
+				<version>${version.commons-beanutils}</version>
+			</dependency>
 			<!-- only defined for exclusions -->
 			<dependency>
 				<groupId>junit</groupId>
@@ -878,6 +901,11 @@
 						<artifactId>hamcrest-core</artifactId>
 					</exclusion>
 				</exclusions>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.commons</groupId>
+				<artifactId>commons-configuration2</artifactId>
+				<version>${version.org.apache.commons.configuration2}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.apache.commons</groupId>
@@ -980,9 +1008,10 @@
 		<plugins.maven.maven-wrapper-plugin>3.1.0</plugins.maven.maven-wrapper-plugin>
 		<plugins.org.eluder.coveralls.coveralls-maven-plugin>4.3.0</plugins.org.eluder.coveralls.coveralls-maven-plugin>
 		<plugins.org.jacoco.jacoco-maven-plugin>0.8.7</plugins.org.jacoco.jacoco-maven-plugin>
-		<plugins.org.owasp.dependency-check-maven>7.0.1</plugins.org.owasp.dependency-check-maven>
+		<plugins.org.owasp.dependency-check-maven>7.0.2</plugins.org.owasp.dependency-check-maven>
 		<plugins.sonatype.nexus-staging-maven-plugin>1.6.12</plugins.sonatype.nexus-staging-maven-plugin>
 		<!-- dependency versions -->
+		<version.commons-beanutils>1.9.4</version.commons-beanutils>
 		<version.com.github.nhojpatrick.hamcrest>1.0.3</version.com.github.nhojpatrick.hamcrest>
 		<version.com.github.spotbugs>4.6.0</version.com.github.spotbugs>
 		<version.com.h3xstream.findsecbugs.findsecbugs-plugin>1.11.0</version.com.h3xstream.findsecbugs.findsecbugs-plugin>
@@ -990,6 +1019,7 @@
 		<version.com.puppycrawl.tools.checkstyle>10.0</version.com.puppycrawl.tools.checkstyle>
 		<version.jp.skypencil.findbugs.slf4j.bug-pattern>1.5.0</version.jp.skypencil.findbugs.slf4j.bug-pattern>
 		<version.junit>4.13.2</version.junit>
+		<version.org.apache.commons.configuration2>2.7</version.org.apache.commons.configuration2>
 		<version.org.apache.commons.lang3>3.12.0</version.org.apache.commons.lang3>
 		<version.org.apache.logging.log4j>2.17.2</version.org.apache.logging.log4j>
 		<version.org.hamcrest>2.2</version.org.hamcrest>
