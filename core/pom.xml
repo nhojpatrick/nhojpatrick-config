@@ -86,6 +86,6 @@
 	<!--properties / -->
 	<properties>
 		<project.Automatic-Module-Name>com.github.nhojpatrick.config.core</project.Automatic-Module-Name>
-		<project.surefire.argLine.jpms.module></project.surefire.argLine.jpms.module>
+		<project.surefire.argLine.jpms.module>--add-opens ${project.Automatic-Module-Name}/${project.Automatic-Module-Name}.files.tests=ALL-UNNAMED</project.surefire.argLine.jpms.module>
 	</properties>
 </project>

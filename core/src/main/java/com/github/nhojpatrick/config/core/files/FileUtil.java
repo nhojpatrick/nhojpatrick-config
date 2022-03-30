@@ -1,4 +1,4 @@
-package com.github.nhojpatrick.config.core;
+package com.github.nhojpatrick.config.core.files;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
