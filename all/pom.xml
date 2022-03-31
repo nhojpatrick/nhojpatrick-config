@@ -39,6 +39,10 @@
 			<groupId>com.github.nhojpatrick.config</groupId>
 			<artifactId>nhojpatrick-config-core</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.github.nhojpatrick.config</groupId>
+			<artifactId>nhojpatrick-config-env</artifactId>
+		</dependency>
 	</dependencies>
 	<!--reports (Deprecated) / -->
 	<!--reporting / -->

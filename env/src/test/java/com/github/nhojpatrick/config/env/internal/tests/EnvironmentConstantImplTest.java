@@ -1,6 +1,6 @@
-package com.github.nhojpatrick.config.core.internal.tests;
+package com.github.nhojpatrick.config.env.internal.tests;
 
-import com.github.nhojpatrick.config.core.internal.EnvironmentConstantImpl;
+import com.github.nhojpatrick.config.env.internal.EnvironmentConstantImpl;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;

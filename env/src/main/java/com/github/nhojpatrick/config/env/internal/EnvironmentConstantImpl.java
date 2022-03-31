@@ -1,6 +1,6 @@
-package com.github.nhojpatrick.config.core.internal;
+package com.github.nhojpatrick.config.env.internal;
 
-import com.github.nhojpatrick.config.core.EnvironmentConstant;
+import com.github.nhojpatrick.config.env.EnvironmentConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
