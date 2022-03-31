@@ -1,6 +1,6 @@
-package com.github.nhojpatrick.config.core.tests;
+package com.github.nhojpatrick.config.env.tests;
 
-import com.github.nhojpatrick.config.core.EnvironmentConstant;
+import com.github.nhojpatrick.config.env.EnvironmentConstant;
 import org.junit.jupiter.api.Test;
 import org.junitpioneer.jupiter.ReadsSystemProperty;
 

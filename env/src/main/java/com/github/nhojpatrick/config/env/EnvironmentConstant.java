@@ -1,6 +1,6 @@
-package com.github.nhojpatrick.config.core;
+package com.github.nhojpatrick.config.env;
 
-import com.github.nhojpatrick.config.core.internal.EnvironmentConstantImpl;
+import com.github.nhojpatrick.config.env.internal.EnvironmentConstantImpl;
 
 public interface EnvironmentConstant {
 
