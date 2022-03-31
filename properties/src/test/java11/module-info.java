@@ -1,5 +1,5 @@
-open module com.github.nhojpatrick.config.core.test {
-    requires com.github.nhojpatrick.config.core;
+open module com.github.nhojpatrick.config.properties.test {
+    requires com.github.nhojpatrick.config.properties;
     requires com.github.nhojpatrick.hamcrest.collections;
     requires com.github.nhojpatrick.hamcrest.lang;
     requires com.github.nhojpatrick.hamcrest.optionals;
