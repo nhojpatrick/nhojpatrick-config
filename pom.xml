@@ -98,6 +98,11 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-antrun-plugin</artifactId>
+					<version>${plugins.maven.maven-antrun-plugin}</version>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-checkstyle-plugin</artifactId>
 					<version>${plugins.maven.maven-checkstyle-plugin}</version>
 					<configuration>
@@ -135,6 +140,26 @@
 					<!--					</configuration>-->
 					<executions>
 						<execution>
+							<id>default-compile</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>compile</goal>
+							</goals>
+							<configuration>
+								<source>1.8</source>
+								<target>1.8</target>
+								<jdkToolchain>
+									<version>1.8</version>
+								</jdkToolchain>
+								<compileSourceRoots>
+									<compileSourceRoot>${project.basedir}/src/main/java</compileSourceRoot>
+								</compileSourceRoots>
+								<compilerArguments>
+									<d>${project.build.directory}/classes</d>
+								</compilerArguments>
+							</configuration>
+						</execution>
+						<execution>
 							<id>java11-main</id>
 							<phase>compile</phase>
 							<goals>
@@ -149,6 +174,9 @@
 									<compileSourceRoot>${project.basedir}/src/main/java</compileSourceRoot>
 									<compileSourceRoot>${project.basedir}/src/main/java11</compileSourceRoot>
 								</compileSourceRoots>
+								<compilerArguments>
+									<d>${project.build.directory}/classes-java11</d>
+								</compilerArguments>
 								<multiReleaseOutput>true</multiReleaseOutput>
 							</configuration>
 						</execution>
@@ -473,6 +501,24 @@
 						<goals>
 							<goal>enforce</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>create-java11-output-directory</id>
+						<phase>process-resources</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<target>
+								<mkdir dir="${project.build.directory}/classes-java11"></mkdir>
+							</target>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
@@ -959,6 +1005,7 @@
 		<plugins.codehaus.versions-maven-plugin>2.10.0</plugins.codehaus.versions-maven-plugin>
 		<plugins.com.github.ekryd.sortpom.sortpom-maven-plugin>3.0.1</plugins.com.github.ekryd.sortpom.sortpom-maven-plugin>
 		<plugins.com.github.spotbugs.spotbugs-maven-plugin>4.6.0.0</plugins.com.github.spotbugs.spotbugs-maven-plugin>
+		<plugins.maven.maven-antrun-plugin>3.0.0</plugins.maven.maven-antrun-plugin>
 		<plugins.maven.maven-checkstyle-plugin>3.1.2</plugins.maven.maven-checkstyle-plugin>
 		<plugins.maven.maven-clean-plugin>3.1.0</plugins.maven.maven-clean-plugin>
 		<plugins.maven.maven-compiler-plugin>3.10.1</plugins.maven.maven-compiler-plugin>
