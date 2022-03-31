@@ -851,6 +851,7 @@
 		<module>core</module>
 		<module>env</module>
 		<module>files</module>
+		<module>properties</module>
 	</modules>
 	<!--repositories / -->
 	<!--pluginRepositories / -->
@@ -896,6 +897,11 @@
 			<dependency>
 				<groupId>com.github.nhojpatrick.config</groupId>
 				<artifactId>nhojpatrick-config-files</artifactId>
+				<version>[${project.version},${project.custom.next.version})</version>
+			</dependency>
+			<dependency>
+				<groupId>com.github.nhojpatrick.config</groupId>
+				<artifactId>nhojpatrick-config-properties</artifactId>
 				<version>[${project.version},${project.custom.next.version})</version>
 			</dependency>
 			<dependency>

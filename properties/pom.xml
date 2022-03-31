@@ -11,7 +11,7 @@
 	</parent>
 	<!--groupId / -->
 	<!--artifactId / -->
-	<artifactId>nhojpatrick-config-core</artifactId>
+	<artifactId>nhojpatrick-config-properties</artifactId>
 	<!--packaging / -->
 	<packaging>jar</packaging>
 	<!--name / -->
@@ -51,6 +51,18 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-configuration2</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-lang3</artifactId>
 		</dependency>
@@ -85,6 +97,6 @@
 	<!--distributionManagement / -->
 	<!--properties / -->
 	<properties>
-		<project.Automatic-Module-Name>com.github.nhojpatrick.config.core</project.Automatic-Module-Name>
+		<project.Automatic-Module-Name>com.github.nhojpatrick.config.properties</project.Automatic-Module-Name>
 	</properties>
 </project>
