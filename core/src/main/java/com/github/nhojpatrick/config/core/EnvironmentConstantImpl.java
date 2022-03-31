@@ -1,6 +1,6 @@
 package com.github.nhojpatrick.config.core;
 
-public class EnvConstant {
+public class EnvironmentConstantImpl {
 
     public static final String ENV;
 
@@ -12,7 +12,7 @@ public class EnvConstant {
         return System.getProperty("env", "local_dev");
     }
 
-    public EnvConstant() {
+    public EnvironmentConstantImpl() {
         throw new AssertionError("Static constants class - cannot be instantiated.");
     }
 
