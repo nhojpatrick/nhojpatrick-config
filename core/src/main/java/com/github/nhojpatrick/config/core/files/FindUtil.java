@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface FindUtil {
 
-    default FindUtil getInstance() {
+    static FindUtil getDefault() {
         return new FindUtilImpl();
     }
 
