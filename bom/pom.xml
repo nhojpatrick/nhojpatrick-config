@@ -50,6 +50,11 @@
 				<artifactId>nhojpatrick-config-env</artifactId>
 				<version>1.0.0-SNAPSHOT</version>
 			</dependency>
+			<dependency>
+				<groupId>com.github.nhojpatrick.config</groupId>
+				<artifactId>nhojpatrick-config-files</artifactId>
+				<version>1.0.0-SNAPSHOT</version>
+			</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<!--distributionManagement / -->
