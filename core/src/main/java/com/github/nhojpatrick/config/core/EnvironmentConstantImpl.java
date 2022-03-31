@@ -1,6 +1,7 @@
 package com.github.nhojpatrick.config.core;
 
-public class EnvironmentConstantImpl {
+public class EnvironmentConstantImpl
+        implements EnvironmentConstant {
 
     public static final String ENV;
 
@@ -12,8 +13,9 @@ public class EnvironmentConstantImpl {
         return System.getProperty("env", "local_dev");
     }
 
-    public EnvironmentConstantImpl() {
-        throw new AssertionError("Static constants class - cannot be instantiated.");
+    @Override
+    public String getEnvName() {
+        return initEnvSetup();
     }
 
 }
