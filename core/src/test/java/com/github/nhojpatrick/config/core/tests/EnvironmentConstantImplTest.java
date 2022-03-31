@@ -1,6 +1,8 @@
 package com.github.nhojpatrick.config.core.tests;
 
 import com.github.nhojpatrick.config.core.EnvironmentConstantImpl;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 import org.junitpioneer.jupiter.ClearSystemProperty;
@@ -28,24 +30,30 @@ public class EnvironmentConstantImplTest {
         );
     }
 
-    @Test
-    @ReadsSystemProperty
-    public void constant() {
-        assertThat(ENV, is(equalTo("local_dev")));
-    }
+    @Nested
+    @DisplayName("EnvironmentConstantImpl.ENV")
+    class Env {
 
-    @Test
-    @ReadsSystemProperty
-    @ClearSystemProperty(key = "env")
-    public void clearEnv() {
-        assertThat(initEnvSetup(), is(equalTo("local_dev")));
-    }
+        @Test
+        @ReadsSystemProperty
+        public void constant() {
+            assertThat(ENV, is(equalTo("local_dev")));
+        }
 
-    @Test
-    @ReadsSystemProperty
-    @SetSystemProperty(key = "env", value = "prod")
-    public void customEnv() {
-        assertThat(initEnvSetup(), is(equalTo("prod")));
+        @Test
+        @ReadsSystemProperty
+        @ClearSystemProperty(key = "env")
+        public void valueDefault() {
+            assertThat(initEnvSetup(), is(equalTo("local_dev")));
+        }
+
+        @Test
+        @ReadsSystemProperty
+        @SetSystemProperty(key = "env", value = "prod")
+        public void valueCustom() {
+            assertThat(initEnvSetup(), is(equalTo("prod")));
+        }
+
     }
 
 }
