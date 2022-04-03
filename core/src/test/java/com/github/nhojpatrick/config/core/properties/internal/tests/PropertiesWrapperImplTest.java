@@ -11,6 +11,7 @@ import org.junit.jupiter.api.function.Executable;
 import java.net.URISyntaxException;
 import java.util.NoSuchElementException;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -246,6 +247,26 @@ public class PropertiesWrapperImplTest {
                     () -> assertThat(cut.lookupString("lookupString.known.string", "Default qwerty"), is(equalTo("Known qwerty"))),
                     //
                     () -> assertThat(cut.lookupString("lookupString.unknown", "Default qwerty"), is(equalTo("Default qwerty")))
+            );
+        }
+
+    }
+
+    @Nested
+    class lookupStrings {
+
+        @Test
+        public void basic()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupStrings.properties"
+            );
+
+            assertAll(
+                    () -> assertThat(cut.lookupStrings("lookupStrings.unknown"), is(nullValue())),
+                    () -> assertThat(cut.lookupStrings("lookupStrings.known"), is(equalTo(asList("one", "two", "three"))))
             );
         }
 
