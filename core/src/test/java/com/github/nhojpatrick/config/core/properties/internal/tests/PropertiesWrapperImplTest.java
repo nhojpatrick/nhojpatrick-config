@@ -3,16 +3,20 @@ package com.github.nhojpatrick.config.core.properties.internal.tests;
 import com.github.nhojpatrick.config.core.properties.PropertiesWrapper;
 import com.github.nhojpatrick.config.core.properties.internal.PropertiesWrapperImpl;
 import org.apache.commons.configuration2.ex.ConfigurationException;
+import org.apache.commons.configuration2.ex.ConversionException;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 import java.net.URISyntaxException;
+import java.util.NoSuchElementException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
 import static org.hamcrest.core.IsNull.nullValue;
 import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class PropertiesWrapperImplTest {
 
@@ -32,6 +36,58 @@ public class PropertiesWrapperImplTest {
                 () -> assertThat("env.one", cut.lookupString("env.one"), is(equalTo("From Override-1.properties"))),
                 () -> assertThat("env.two", cut.lookupString("env.two"), is(equalTo("From Override-2.properties")))
         );
+    }
+
+    @Nested
+    class lookupBoolean {
+
+        @Test
+        public void basic()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupBoolean.properties"
+            );
+
+            assertAll(
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.true"), is(equalTo(true))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.true_caps"), is(equalTo(true))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.false"), is(equalTo(false))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.false_caps"), is(equalTo(false))),
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupBoolean("lookupBoolean.unknown");
+                        assertThrows(NoSuchElementException.class, testMethod);
+                    },
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupBoolean("lookupBoolean.known.string");
+                        assertThrows(ConversionException.class, testMethod);
+                    }
+            );
+        }
+
+        @Test
+        public void defaults()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupBoolean.properties"
+            );
+
+            assertAll(
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.true", false), is(equalTo(true))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.true_caps", false), is(equalTo(true))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.false", true), is(equalTo(false))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.known.false_caps", true), is(equalTo(false))),
+                    () -> assertThat(cut.lookupBoolean("lookupBoolean.unknown", true), is(equalTo(true))),
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupBoolean("lookupBoolean.known.string", true);
+                        assertThrows(ConversionException.class, testMethod);
+                    }
+            );
+        }
+
     }
 
     @Nested
