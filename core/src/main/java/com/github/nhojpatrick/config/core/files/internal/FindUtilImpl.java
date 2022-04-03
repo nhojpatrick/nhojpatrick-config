@@ -122,4 +122,10 @@ public class FindUtilImpl
         return is;
     }
 
+    @Override
+    public InputStream findFirstFileAsStream(final String... filesAsVarArgs) {
+        return findFirstFileAsOptionalStream(filesAsVarArgs)
+                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
+    }
+
 }
