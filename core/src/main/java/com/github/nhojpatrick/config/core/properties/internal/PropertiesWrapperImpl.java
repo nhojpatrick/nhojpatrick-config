@@ -128,6 +128,22 @@ public class PropertiesWrapperImpl
     }
 
     @Override
+    public int lookupInt(final String key) {
+        LOGGER.debug("lookupInt('{}')", key);
+        final int value = this.config.getInt(key);
+        LOGGER.debug("lookupInt('{}') value='{}'", key, value);
+        return value;
+    }
+
+    @Override
+    public int lookupInt(final String key, final int defaultValue) {
+        LOGGER.debug("lookupInt('{}', '{}')", key, defaultValue);
+        final int value = this.config.getInt(key, defaultValue);
+        LOGGER.debug("lookupInt('{}', '{}') value='{}'", key, defaultValue, value);
+        return value;
+    }
+
+    @Override
     public String lookupString(final String key) {
         LOGGER.debug("lookupString('{}')", key);
         final String value = this.config.getString(key);
