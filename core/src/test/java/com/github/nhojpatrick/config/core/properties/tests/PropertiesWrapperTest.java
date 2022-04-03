@@ -96,6 +96,76 @@ public class PropertiesWrapperTest {
     }
 
     @Test
+    public void getDefault_empty_single() {
+
+        final Executable testMethod = () -> PropertiesWrapper.getDefault(
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    public void getDefault_empty_multiple() {
+
+        final Executable testMethod = () -> PropertiesWrapper.getDefault(
+                "",
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    public void getDefault_empty_leading() {
+
+        final Executable testMethod = () -> PropertiesWrapper.getDefault(
+                "",
+                "is-not-empty"
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    public void getDefault_empty_trailing() {
+
+        final Executable testMethod = () -> PropertiesWrapper.getDefault(
+                "is-not-empty",
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    public void getDefault_empty_middle() {
+
+        final Executable testMethod = () -> PropertiesWrapper.getDefault(
+                "is-not-empty",
+                "",
+                "is-not-empty"
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
     public void getDefault_valid_single() {
 
         final PropertiesWrapper cut = PropertiesWrapper.getDefault(
