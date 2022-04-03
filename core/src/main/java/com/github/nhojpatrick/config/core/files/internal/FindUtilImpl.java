@@ -25,6 +25,12 @@ public class FindUtilImpl
 
     private static final Logger LOGGER = LoggerFactory.getLogger(FindUtilImpl.class);
 
+    @Override
+    public File findFirstFileAsFile(final String... filesAsVarArgs) {
+        return findFirstFileAsOptionalFile(filesAsVarArgs)
+                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
+    }
+
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
     @Override
@@ -79,6 +85,7 @@ public class FindUtilImpl
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
+    @Override
     public Optional<InputStream> findFirstFileAsStream(final String... filesAsVarArgs) {
 
         LOGGER.debug("findFirstFileAsStream('{}')", new Object[]{filesAsVarArgs});
