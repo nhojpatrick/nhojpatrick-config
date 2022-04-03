@@ -1,8 +1,11 @@
 package com.github.nhojpatrick.config.core.properties.tests;
 
 import com.github.nhojpatrick.config.core.properties.PropertiesWrapper;
+import org.apache.commons.configuration2.ex.ConfigurationException;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
+
+import java.net.URISyntaxException;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
@@ -166,7 +169,9 @@ public class PropertiesWrapperTest {
     }
 
     @Test
-    public void getDefault_valid_single() {
+    public void getDefault_valid_single()
+            throws URISyntaxException,
+            ConfigurationException {
 
         final PropertiesWrapper cut = PropertiesWrapper.getDefault(
                 "is-not-empty"
@@ -175,7 +180,9 @@ public class PropertiesWrapperTest {
     }
 
     @Test
-    public void getDefault_valid_multiple() {
+    public void getDefault_valid_multiple()
+            throws URISyntaxException,
+            ConfigurationException {
 
         final PropertiesWrapper cut = PropertiesWrapper.getDefault(
                 "is-not-empty-0",
