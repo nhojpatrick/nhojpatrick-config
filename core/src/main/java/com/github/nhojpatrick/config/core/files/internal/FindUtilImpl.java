@@ -86,9 +86,9 @@ public class FindUtilImpl
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
     @Override
-    public Optional<InputStream> findFirstFileAsStream(final String... filesAsVarArgs) {
+    public Optional<InputStream> findFirstFileAsOptionalStream(final String... filesAsVarArgs) {
 
-        LOGGER.debug("findFirstFileAsStream('{}')", new Object[]{filesAsVarArgs});
+        LOGGER.debug("findFirstFileAsOptionalStream('{}')", new Object[]{filesAsVarArgs});
 
         requireNonNull(filesAsVarArgs, "List of files required.");
 
@@ -117,9 +117,8 @@ public class FindUtilImpl
                 .map(FindUtilImpl.class.getClassLoader()::getResourceAsStream)
                 .filter(Objects::nonNull)
                 .findFirst();
-//                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", files)));
 
-        LOGGER.debug("findFirstFileAsStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
+        LOGGER.debug("findFirstFileAsOptionalStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
         return is;
     }
 

@@ -16,6 +16,6 @@ public interface FindUtil {
 
     Optional<File> findFirstFileAsOptionalFile(String... filesAsVarArgs);
 
-    Optional<InputStream> findFirstFileAsStream(String... filesAsVarArgs);
+    Optional<InputStream> findFirstFileAsOptionalStream(String... filesAsVarArgs);
 
 }
