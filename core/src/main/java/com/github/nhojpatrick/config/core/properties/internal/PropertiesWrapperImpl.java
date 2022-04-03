@@ -144,6 +144,14 @@ public class PropertiesWrapperImpl
     }
 
     @Override
+    public Integer lookupInteger(final String key, final Integer defaultValue) {
+        LOGGER.debug("lookupInteger('{}', '{}')", key, defaultValue);
+        final Integer value = this.config.getInteger(key, defaultValue);
+        LOGGER.debug("lookupInteger('{}', '{}') value='{}'", key, defaultValue, value);
+        return value;
+    }
+
+    @Override
     public String lookupString(final String key) {
         LOGGER.debug("lookupString('{}')", key);
         final String value = this.config.getString(key);
