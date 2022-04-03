@@ -30,6 +30,17 @@ public class FindUtil_findFirstFileAsFileTest {
     }
 
     @Test
+    @DisplayName("Input empty")
+    public void input_empty() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile();
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
     @DisplayName("Input null single")
     public void input_null() {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
@@ -48,6 +59,49 @@ public class FindUtil_findFirstFileAsFileTest {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
                 null,
                 null
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input null leading")
+    public void input_null_leading() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                null,
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input null trailing")
+    public void input_null_trailing() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "",
+                null
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input null middle")
+    public void input_null_middle() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "",
+                null,
+                ""
         );
         final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
         assertAll("Checking Exception",
