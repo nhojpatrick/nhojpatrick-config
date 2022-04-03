@@ -27,9 +27,10 @@ public class FindUtilImpl
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
-    public Optional<File> findFirstFileAsFile(final String... filesAsVarArgs) {
+    @Override
+    public Optional<File> findFirstFileAsOptionalFile(final String... filesAsVarArgs) {
 
-        LOGGER.debug("findFirstFileAsFile('{}')", filesAsVarArgs);
+        LOGGER.debug("findFirstFileAsOptionalFile('{}')", filesAsVarArgs);
 
         requireNonNull(filesAsVarArgs, "List of files required.");
 
@@ -51,7 +52,7 @@ public class FindUtilImpl
             throw new NullPointerException("List of files required.");
         });
 
-        LOGGER.debug("findFirstFileAsFile('{}') files '{}'", filesAsVarArgs, files);
+        LOGGER.debug("findFirstFileAsOptionalFile('{}') files '{}'", filesAsVarArgs, files);
 
         final Optional<File> file = files.stream()
                 .filter(Objects::nonNull)
@@ -71,9 +72,8 @@ public class FindUtilImpl
                 .filter(Objects::nonNull)
                 .filter(File::isFile)
                 .findFirst();
-//                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", files)));
 
-        LOGGER.debug("findFirstFileAsFile('{}') files '{}' found '{}'", filesAsVarArgs, files, file);
+        LOGGER.debug("findFirstFileAsOptionalFile('{}') files '{}' found '{}'", filesAsVarArgs, files, file);
         return file;
     }
 

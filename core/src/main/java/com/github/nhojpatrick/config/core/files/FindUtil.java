@@ -12,7 +12,7 @@ public interface FindUtil {
         return new FindUtilImpl();
     }
 
-    Optional<File> findFirstFileAsFile(String... filesAsVarArgs);
+    Optional<File> findFirstFileAsOptionalFile(String... filesAsVarArgs);
 
     Optional<InputStream> findFirstFileAsStream(String... filesAsVarArgs);
 
