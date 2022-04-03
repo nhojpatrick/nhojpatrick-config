@@ -35,6 +35,27 @@ public interface PropertiesWrapper {
     Boolean lookupBoolean(String key, Boolean defaultValue);
 
     /**
+     * Lookup {@link int} property using supplier key, using defaultValue if needed.
+     *
+     * <p>Lookup logic and error handling controlled by Apache commons-configuration.</p>
+     *
+     * @param key the property key to use.
+     * @return the value of the key.
+     */
+    int lookupInt(String key);
+
+    /**
+     * Lookup {@link int} property using supplier key, using defaultValue if needed.
+     *
+     * <p>Lookup logic, defaultValue and error handling controlled by Apache commons-configuration.</p>
+     *
+     * @param key          the property key to use.
+     * @param defaultValue the default property value to use.
+     * @return the value of the key.
+     */
+    int lookupInt(String key, int defaultValue);
+
+    /**
      * Lookup {@link java.lang.String} property using supplier key.
      *
      * <p>Lookup logic and error handling controlled by Apache commons-configuration.</p>

@@ -91,6 +91,69 @@ public class PropertiesWrapperImplTest {
     }
 
     @Nested
+    class lookupInt {
+
+        @Test
+        public void basic()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupInt.properties"
+            );
+
+            assertAll(
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.unknown");
+                        assertThrows(NoSuchElementException.class, testMethod);
+                    },
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.base");
+                        assertThrows(ConversionException.class, testMethod);
+                    },
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.zero");
+                        assertThrows(ConversionException.class, testMethod);
+                    },
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.boolean_true");
+                        assertThrows(ConversionException.class, testMethod);
+                    },
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.boolean_false");
+                        assertThrows(ConversionException.class, testMethod);
+                    },
+                    () -> assertThat("env.zero", cut.lookupInt("lookupInt.integer"), is(equalTo(12345))),
+                    () -> {
+                        final Executable testMethod = () -> cut.lookupInt("lookupInt.string");
+                        assertThrows(ConversionException.class, testMethod);
+                    }
+            );
+        }
+
+        @Test
+        public void defaults()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupInt.properties"
+            );
+
+            assertAll(
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.integer", 23456), is(equalTo(23456))),
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.base", 23456), is(equalTo(23456))),
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.zero", 23456), is(equalTo(23456))),
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.boolean_true", 23456), is(equalTo(23456))),
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.boolean_false", 23456), is(equalTo(23456))),
+                    () -> assertThat("env.zero", cut.lookupInt("lookupInt.integer", 23456), is(equalTo(12345))),
+                    () -> assertThat("env.zero", cut.lookupInt("unknown.string", 23456), is(equalTo(23456)))
+            );
+        }
+
+    }
+
+    @Nested
     class lookupString {
 
         @Test
