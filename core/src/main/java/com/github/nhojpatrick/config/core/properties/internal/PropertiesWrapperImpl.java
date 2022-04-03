@@ -111,4 +111,20 @@ public class PropertiesWrapperImpl
         return url;
     }
 
+    @Override
+    public String lookupString(final String key) {
+        LOGGER.debug("lookupString('{}')", key);
+        final String value = this.config.getString(key);
+        LOGGER.debug("lookupString('{}') value='{}'", key, value);
+        return value;
+    }
+
+    @Override
+    public String lookupString(final String key, final String defaultValue) {
+        LOGGER.debug("lookupString('{}', '{}')", key, defaultValue);
+        final String value = this.config.getString(key, defaultValue);
+        LOGGER.debug("lookupString('{}', '{}') value='{}'", key, defaultValue, value);
+        return value;
+    }
+
 }
