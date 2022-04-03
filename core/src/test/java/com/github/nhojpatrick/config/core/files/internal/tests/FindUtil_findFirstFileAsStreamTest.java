@@ -13,6 +13,7 @@ import java.util.Optional;
 
 import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsEmpty;
 import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsPresent;
+import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
@@ -137,7 +138,7 @@ public class FindUtil_findFirstFileAsStreamTest {
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
         );
         assertThat(actual, is(optionalIsPresent()));
-        final String actualContent = IOUtils.toString(actual.get(), "UTF-8");
+        final String actualContent = IOUtils.toString(actual.get(), UTF_8);
         assertThat(actualContent, is(equalTo("This is the abc file\n")));
     }
 
@@ -150,7 +151,7 @@ public class FindUtil_findFirstFileAsStreamTest {
                 "com/github/nhojpatrick/config/core/files/tests/def.file"
         );
         assertThat(actual, is(optionalIsPresent()));
-        final String actualContent = IOUtils.toString(actual.get(), "UTF-8");
+        final String actualContent = IOUtils.toString(actual.get(), UTF_8);
         assertThat(actualContent, is(equalTo("This is the abc file\n")));
     }
 
@@ -163,7 +164,7 @@ public class FindUtil_findFirstFileAsStreamTest {
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
         );
         assertThat(actual, is(optionalIsPresent()));
-        final String actualContent = IOUtils.toString(actual.get(), "UTF-8");
+        final String actualContent = IOUtils.toString(actual.get(), UTF_8);
         assertThat(actualContent, is(equalTo("This is the def file\n")));
     }
 
@@ -176,7 +177,7 @@ public class FindUtil_findFirstFileAsStreamTest {
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
         );
         assertThat(actual, is(optionalIsPresent()));
-        final String actualContent = IOUtils.toString(actual.get(), "UTF-8");
+        final String actualContent = IOUtils.toString(actual.get(), UTF_8);
         assertThat(actualContent, is(equalTo("This is the abc file\n")));
     }
 
@@ -189,7 +190,7 @@ public class FindUtil_findFirstFileAsStreamTest {
                 "com/github/nhojpatrick/config/core/files/tests/unknown.file"
         );
         assertThat(actual, is(optionalIsPresent()));
-        final String actualContent = IOUtils.toString(actual.get(), "UTF-8");
+        final String actualContent = IOUtils.toString(actual.get(), UTF_8);
         assertThat(actualContent, is(equalTo("This is the abc file\n")));
     }
 
