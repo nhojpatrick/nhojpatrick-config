@@ -112,6 +112,22 @@ public class PropertiesWrapperImpl
     }
 
     @Override
+    public boolean lookupBoolean(final String key) {
+        LOGGER.debug("lookupBoolean('{}')", key);
+        final boolean value = this.config.getBoolean(key);
+        LOGGER.debug("lookupBoolean('{}') value='{}'", key, value);
+        return value;
+    }
+
+    @Override
+    public Boolean lookupBoolean(final String key, final Boolean defaultValue) {
+        LOGGER.debug("lookupBoolean('{}', '{}')", key, defaultValue);
+        final boolean value = this.config.getBoolean(key, defaultValue);
+        LOGGER.debug("lookupBoolean('{}', '{}') value='{}'", key, defaultValue, value);
+        return value;
+    }
+
+    @Override
     public String lookupString(final String key) {
         LOGGER.debug("lookupString('{}')", key);
         final String value = this.config.getString(key);
