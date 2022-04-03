@@ -2,6 +2,7 @@ package com.github.nhojpatrick.config.core.files.internal;
 
 import com.github.nhojpatrick.config.core.files.FindUtil;
 import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
+import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -32,12 +33,18 @@ public class FindUtilImpl
 
         final List<String> files = asList(filesAsVarArgs);
 
+        if (CollectionUtils.isEmpty(files)) {
+            throw new NullPointerException("List of files required.");
+        }
+
         final Optional<Boolean> anyNull = files.stream()
                 .map(p -> Objects.nonNull(p))
-                .filter(p -> p)
+                .filter(p -> !p)
                 .findAny();
-        anyNull
-                .orElseThrow(() -> new NullPointerException("List of files required."));
+
+        anyNull.ifPresent(p -> {
+            throw new NullPointerException("List of files required.");
+        });
 
         LOGGER.debug("findFirstFileAsFile('{}') files '{}'", filesAsVarArgs, files);
 
@@ -75,12 +82,18 @@ public class FindUtilImpl
 
         final List<String> files = asList(filesAsVarArgs);
 
+        if (CollectionUtils.isEmpty(files)) {
+            throw new NullPointerException("List of files required.");
+        }
+
         final Optional<Boolean> anyNull = files.stream()
-                .map(Objects::nonNull)
-                .filter(p -> p)
+                .map(p -> Objects.nonNull(p))
+                .filter(p -> !p)
                 .findAny();
-        anyNull
-                .orElseThrow(() -> new NullPointerException("List of files required."));
+
+        anyNull.ifPresent(p -> {
+            throw new NullPointerException("List of files required.");
+        });
 
         LOGGER.debug("findFirstFileStream('{}') files '{}'", filesAsVarArgs, files);
 
