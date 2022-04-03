@@ -6,6 +6,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 import static java.util.Arrays.asList;
 import static java.util.Objects.requireNonNull;
@@ -17,7 +19,7 @@ public class PropertiesWrapperImpl
 
     public PropertiesWrapperImpl(final String... filesAsVarArgs) {
 
-        LOGGER.debug("PropertiesWrapperImpl('{}')", filesAsVarArgs);
+        LOGGER.debug("PropertiesWrapperImpl('{}')", new Object[]{filesAsVarArgs});
 
         requireNonNull(filesAsVarArgs, "List of files required.");
 
@@ -26,6 +28,15 @@ public class PropertiesWrapperImpl
         if (CollectionUtils.isEmpty(files)) {
             throw new NullPointerException("List of files required.");
         }
+
+        final Optional<Boolean> anyNull = files.stream()
+                .map(p -> Objects.nonNull(p))
+                .filter(p -> !p)
+                .findAny();
+
+        anyNull.ifPresent(p -> {
+            throw new NullPointerException("List of files required.");
+        });
     }
 
 }
