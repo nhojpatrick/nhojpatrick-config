@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.Optional;
 
 import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsEmpty;
@@ -131,8 +130,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input valid single")
-    public void input_valid()
-            throws IOException {
+    public void input_valid() {
         final Optional<File> actual = this.cut.findFirstFileAsFile(
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
         );
@@ -143,8 +141,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input valid abc def")
-    public void input_valid_abc_def()
-            throws IOException {
+    public void input_valid_abc_def() {
         final Optional<File> actual = this.cut.findFirstFileAsFile(
                 "com/github/nhojpatrick/config/core/files/tests/abc.file",
                 "com/github/nhojpatrick/config/core/files/tests/def.file"
@@ -156,8 +153,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input valid def abc")
-    public void input_valid_def_abc()
-            throws IOException {
+    public void input_valid_def_abc() {
         final Optional<File> actual = this.cut.findFirstFileAsFile(
                 "com/github/nhojpatrick/config/core/files/tests/def.file",
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
@@ -169,8 +165,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input valid leading invalid")
-    public void input_valid_unknown_abc()
-            throws IOException {
+    public void input_valid_unknown_abc() {
         final Optional<File> actual = this.cut.findFirstFileAsFile(
                 "com/github/nhojpatrick/config/core/files/tests/unknown.file",
                 "com/github/nhojpatrick/config/core/files/tests/abc.file"
@@ -182,8 +177,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input valid trailing invalid")
-    public void input_valid_abc_unknown()
-            throws IOException {
+    public void input_valid_abc_unknown() {
         final Optional<File> actual = this.cut.findFirstFileAsFile(
                 "com/github/nhojpatrick/config/core/files/tests/abc.file",
                 "com/github/nhojpatrick/config/core/files/tests/unknown.file"
