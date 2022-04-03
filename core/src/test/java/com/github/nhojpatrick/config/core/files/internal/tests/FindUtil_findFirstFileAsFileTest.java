@@ -41,7 +41,7 @@ public class FindUtil_findFirstFileAsFileTest {
 
     @Test
     @DisplayName("Input null single")
-    public void input_null() {
+    public void input_null_single() {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
                 null
         );
@@ -71,7 +71,7 @@ public class FindUtil_findFirstFileAsFileTest {
     public void input_null_leading() {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
                 null,
-                ""
+                "is-not-empty"
         );
         final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
         assertAll("Checking Exception",
@@ -84,7 +84,7 @@ public class FindUtil_findFirstFileAsFileTest {
     @DisplayName("Input null trailing")
     public void input_null_trailing() {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
-                "",
+                "is-not-empty",
                 null
         );
         final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
@@ -98,9 +98,79 @@ public class FindUtil_findFirstFileAsFileTest {
     @DisplayName("Input null middle")
     public void input_null_middle() {
         final Executable testMethod = () -> this.cut.findFirstFileAsFile(
-                "",
+                "is-not-empty",
                 null,
+                "is-not-empty"
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input empty single")
+    public void input_empty_single() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
                 ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input empty multiple")
+    public void input_empty_multiples() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "",
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input empty leading")
+    public void input_empty_leading() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "",
+                "is-not-empty"
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input empty trailing")
+    public void input_empty_trailing() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "is-not-empty",
+                ""
+        );
+        final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
+        assertAll("Checking Exception",
+                () -> assertThat(thrown.getMessage(), is(equalTo("List of files required."))),
+                () -> assertThat(thrown.getCause(), is(nullValue()))
+        );
+    }
+
+    @Test
+    @DisplayName("Input empty middle")
+    public void input_empty_middle() {
+        final Executable testMethod = () -> this.cut.findFirstFileAsFile(
+                "is-not-empty",
+                "",
+                "is-not-empty"
         );
         final RuntimeException thrown = assertThrows(RuntimeException.class, testMethod);
         assertAll("Checking Exception",
