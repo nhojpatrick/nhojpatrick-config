@@ -4,8 +4,8 @@ import com.github.nhojpatrick.config.core.properties.internal.PropertiesWrapperI
 
 public interface PropertiesWrapper {
 
-    static PropertiesWrapper getDefault() {
-        return new PropertiesWrapperImpl();
+    static PropertiesWrapper getDefault(final String... filesAsVarArgs) {
+        return new PropertiesWrapperImpl(filesAsVarArgs);
     }
 
 }

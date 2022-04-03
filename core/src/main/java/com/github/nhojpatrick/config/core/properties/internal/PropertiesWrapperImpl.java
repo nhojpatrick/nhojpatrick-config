@@ -15,9 +15,7 @@ public class PropertiesWrapperImpl
 
     private static final Logger LOGGER = LoggerFactory.getLogger(PropertiesWrapperImpl.class);
 
-    public PropertiesWrapperImpl() {
-
-        final String[] filesAsVarArgs = null;
+    public PropertiesWrapperImpl(final String... filesAsVarArgs) {
 
         LOGGER.debug("PropertiesWrapperImpl('{}')", filesAsVarArgs);
 
