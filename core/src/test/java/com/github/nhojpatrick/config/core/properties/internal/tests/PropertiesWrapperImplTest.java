@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import java.net.URISyntaxException;
+import java.util.HashMap;
 import java.util.NoSuchElementException;
 
 import static java.util.Arrays.asList;
@@ -203,6 +204,32 @@ public class PropertiesWrapperImplTest {
                     () -> {
                         final Executable testMethod = () -> cut.lookupInt("lookupInteger.string", 34567890);
                         assertThrows(ConversionException.class, testMethod);
+                    }
+            );
+        }
+
+    }
+
+    @Nested
+    class lookupMap {
+
+        @Test
+        public void basic()
+                throws URISyntaxException,
+                ConfigurationException {
+
+            final PropertiesWrapper cut = new PropertiesWrapperImpl(
+                    "/com/github/nhojpatrick/config/core/properties/internal/tests/lookupMap.properties"
+            );
+
+            assertAll(
+                    () -> assertThat(cut.lookupMap("lookupMap.unknown", String.class), is(equalTo(new HashMap<String, String>()))),
+                    () -> {
+                        final HashMap<String, String> expected = new HashMap<>();
+                        expected.put("key1", "value1");
+                        expected.put("key2", "value2");
+                        expected.put("key3", "value3");
+                        assertThat(cut.lookupMap("lookupMap.known", String.class), is(equalTo(expected)));
                     }
             );
         }

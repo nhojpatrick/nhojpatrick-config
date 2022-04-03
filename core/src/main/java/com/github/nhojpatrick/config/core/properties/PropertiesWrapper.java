@@ -5,6 +5,7 @@ import org.apache.commons.configuration2.ex.ConfigurationException;
 
 import java.net.URISyntaxException;
 import java.util.List;
+import java.util.Map;
 
 public interface PropertiesWrapper {
 
@@ -66,6 +67,14 @@ public interface PropertiesWrapper {
      * @return the value of the key.
      */
     Integer lookupInteger(String key, Integer defaultValue);
+
+    /**
+     * @param key
+     * @param clazz
+     * @param <T>
+     * @return
+     */
+    <T> Map<String, T> lookupMap(final String key, T clazz);
 
     /**
      * Lookup {@link java.lang.String} property using supplier key.

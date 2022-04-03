@@ -19,7 +19,10 @@ import java.io.File;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Paths;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -149,6 +152,23 @@ public class PropertiesWrapperImpl
         final Integer value = this.config.getInteger(key, defaultValue);
         LOGGER.debug("lookupInteger('{}', '{}') value='{}'", key, defaultValue, value);
         return value;
+    }
+
+    @Override
+    public <T> Map<String, T> lookupMap(final String key, T clazz) {
+        LOGGER.debug("lookupMap('{}', '{}')", key, clazz);
+        final Map<String, T> map = new LinkedHashMap<>();
+        final Configuration subset = config.subset(key);
+        if (!subset.isEmpty()) {
+            final Iterator it = subset.getKeys();
+            while (it.hasNext()) {
+                final String k = (String) it.next();
+                final T v = (T) subset.getProperty(k);
+                map.put(k, v);
+            }
+        }
+        LOGGER.debug("lookupMap('{}', '{}') map='{}'", key, clazz, map);
+        return map;
     }
 
     @Override
