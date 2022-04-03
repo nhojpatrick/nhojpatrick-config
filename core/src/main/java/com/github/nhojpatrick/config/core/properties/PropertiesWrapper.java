@@ -4,6 +4,7 @@ import com.github.nhojpatrick.config.core.properties.internal.PropertiesWrapperI
 import org.apache.commons.configuration2.ex.ConfigurationException;
 
 import java.net.URISyntaxException;
+import java.util.List;
 
 public interface PropertiesWrapper {
 
@@ -86,5 +87,15 @@ public interface PropertiesWrapper {
      * @return the value of the key.
      */
     String lookupString(String key, String defaultValue);
+
+    /**
+     * Lookup {@link java.lang.String} property using supplier key.
+     *
+     * <p>Lookup logic and error handling controlled by Apache commons-configuration.</p>
+     *
+     * @param key the property key to use.
+     * @return the value of the key.
+     */
+    List<String> lookupStrings(final String key);
 
 }

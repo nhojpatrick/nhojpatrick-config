@@ -167,4 +167,12 @@ public class PropertiesWrapperImpl
         return value;
     }
 
+    @Override
+    public List<String> lookupStrings(final String key) {
+        LOGGER.debug("lookupStrings('{}')", key);
+        final List<String> value = this.config.getList(String.class, key);
+        LOGGER.debug("lookupStrings('{}') value='{}'", key, value);
+        return value;
+    }
+
 }
