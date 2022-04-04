@@ -28,7 +28,8 @@ public class FindUtilImpl
     @Override
     public File findFirstFileAsFile(final String... filesAsVarArgs) {
         return findFirstFileAsOptionalFile(filesAsVarArgs)
-                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
+                .orElseThrow(
+                        () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
@@ -129,7 +130,8 @@ public class FindUtilImpl
     @Override
     public InputStream findFirstFileAsStream(final String... filesAsVarArgs) {
         return findFirstFileAsOptionalStream(filesAsVarArgs)
-                .orElseThrow(() -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
+                .orElseThrow(
+                        () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
 
 }
