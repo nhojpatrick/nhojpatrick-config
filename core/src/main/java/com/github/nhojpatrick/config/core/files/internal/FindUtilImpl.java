@@ -36,6 +36,7 @@ public class FindUtilImpl
     @Override
     public Optional<File> findFirstFileAsOptionalFile(final String... filesAsVarArgs) {
 
+        // CPD-OFF
         LOGGER.debug("findFirstFileAsOptionalFile('{}')", filesAsVarArgs);
 
         requireNonNull(filesAsVarArgs, "List of files required.");
@@ -81,6 +82,7 @@ public class FindUtilImpl
 
         LOGGER.debug("findFirstFileAsOptionalFile('{}') files '{}' found '{}'", filesAsVarArgs, files, file);
         return file;
+        // CPD-ON
     }
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
@@ -88,6 +90,7 @@ public class FindUtilImpl
     @Override
     public Optional<InputStream> findFirstFileAsOptionalStream(final String... filesAsVarArgs) {
 
+        // CPD-OFF
         LOGGER.debug("findFirstFileAsOptionalStream('{}')", new Object[]{filesAsVarArgs});
 
         requireNonNull(filesAsVarArgs, "List of files required.");
@@ -120,6 +123,7 @@ public class FindUtilImpl
 
         LOGGER.debug("findFirstFileAsOptionalStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
         return is;
+        // CPD-ON
     }
 
     @Override
