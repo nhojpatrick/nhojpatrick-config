@@ -316,7 +316,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>${plugins.maven.maven-surefire-plugin}</version>
 					<configuration>
-						<argLine>${project.surefire.argLine.jpms}</argLine>
+						<!--						<argLine>${project.surefire.argLine.jpms}</argLine>-->
 						<excludes>
 							<exclude>**/*IT.java</exclude>
 						</excludes>
