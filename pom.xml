@@ -534,6 +534,18 @@
 									</sources>
 								</configuration>
 							</execution>
+							<execution>
+								<id>add-source-java11-test</id>
+								<phase>generate-test-sources</phase>
+								<goals>
+									<goal>add-test-source</goal>
+								</goals>
+								<configuration>
+									<sources>
+										<source>${project.basedir}/src/test/java11</source>
+									</sources>
+								</configuration>
+							</execution>
 						</executions>
 					</plugin>
 				</plugins>
