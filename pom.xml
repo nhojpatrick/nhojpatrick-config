@@ -202,9 +202,6 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<version>${plugins.maven.maven-failsafe-plugin}</version>
-					<configuration>
-						<argLine>${project.failsafe.argLine.jpms}</argLine>
-					</configuration>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -545,7 +542,6 @@
 				<base.java.version>11</base.java.version>
 				<maven.compiler.release>11</maven.compiler.release>
 				<project.custom.java.version>11</project.custom.java.version>
-				<project.failsafe.argLine.jpms>${project.failsafe.argLine.jpms.global} ${project.failsafe.argLine.jpms.module}</project.failsafe.argLine.jpms>
 			</properties>
 		</profile>
 		<profile>
@@ -967,15 +963,6 @@
 		<project.build.sourceEncoding>${project.custom.encoding}</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>${project.custom.encoding}</project.reporting.outputEncoding>
 		<surefire.runOrder>random</surefire.runOrder>
-		<!-- Failsafe jpms override(s) -->
-		<project.failsafe.argLine.jpms></project.failsafe.argLine.jpms>
-		<project.failsafe.argLine.jpms.global>--add-opens ${project.Automatic-Module-Name}/${project.Automatic-Module-Name}=ALL-UNNAMED
-			--add-opens ${project.Automatic-Module-Name}/${project.Automatic-Module-Name}.tests=ALL-UNNAMED
-			--add-opens ${project.Automatic-Module-Name}/${project.Automatic-Module-Name}.tests=org.junit.platform.commons
-			--add-opens org.junit.platform.commons/org.junit.platform.commons.logging=ALL-UNNAMED
-			--add-opens org.junit.platform.commons/org.junit.platform.commons.util=ALL-UNNAMED
-			--add-opens java.base/java.lang=ALL-UNNAMED</project.failsafe.argLine.jpms.global>
-		<project.failsafe.argLine.jpms.module></project.failsafe.argLine.jpms.module>
 		<!-- plugin versions -->
 		<plugins.codehaus.build-helper-maven-plugin>3.3.0</plugins.codehaus.build-helper-maven-plugin>
 		<plugins.codehaus.versions-maven-plugin>2.10.0</plugins.codehaus.versions-maven-plugin>
