@@ -30,13 +30,20 @@ public interface FindUtil {
     Optional<File> findOptionalFile(String... filePaths);
 
     /**
+     * Find {@link java.io.InputStream} by searching list of {@code filePaths}.
+     *
+     * @param filePaths a list of potential files.
+     * @return the {@link java.io.InputStream} if found, otherwise throw {@link java.lang.RuntimeException}.
+     * @throws RuntimeException if file not found.
+     */
+    InputStream findInputStream(String... filePaths);
+
+    /**
      * Find optional {@link java.io.InputStream} by searching list of {@code filePaths}.
      *
      * @param filePaths a list of potential files.
      * @return the {@link java.io.InputStream} if found, otherwise {@link java.util.Optional#empty()}.
      */
     Optional<InputStream> findOptionalInputStream(String... filePaths);
-
-    InputStream findFirstFileAsStream(String... filesAsVarArgs);
 
 }
