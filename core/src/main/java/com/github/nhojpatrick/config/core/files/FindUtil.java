@@ -29,7 +29,13 @@ public interface FindUtil {
      */
     Optional<File> findOptionalFile(String... filePaths);
 
-    Optional<InputStream> findFirstFileAsOptionalStream(String... filesAsVarArgs);
+    /**
+     * Find optional {@link java.io.InputStream} by searching list of {@code filePaths}.
+     *
+     * @param filePaths a list of potential files.
+     * @return the {@link java.io.InputStream} if found, otherwise {@link java.util.Optional#empty()}.
+     */
+    Optional<InputStream> findOptionalInputStream(String... filePaths);
 
     InputStream findFirstFileAsStream(String... filesAsVarArgs);
 

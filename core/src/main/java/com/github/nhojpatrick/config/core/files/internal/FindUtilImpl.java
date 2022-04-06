@@ -90,10 +90,10 @@ public class FindUtilImpl
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
     @Override
-    public Optional<InputStream> findFirstFileAsOptionalStream(final String... filesAsVarArgs) {
+    public Optional<InputStream> findOptionalInputStream(final String... filesAsVarArgs) {
 
         // CPD-OFF
-        LOGGER.debug("findFirstFileAsOptionalStream('{}')", new Object[]{filesAsVarArgs});
+        LOGGER.debug("findOptionalInputStream('{}')", new Object[]{filesAsVarArgs});
 
         requireNonNull(filesAsVarArgs, "List of files required.");
 
@@ -115,7 +115,7 @@ public class FindUtilImpl
             throw new NullPointerException("List of files required.");
         });
 
-        LOGGER.debug("findFirstFileStream('{}') files '{}'", filesAsVarArgs, files);
+        LOGGER.debug("findOptionalInputStream('{}') files '{}'", filesAsVarArgs, files);
 
         final Optional<InputStream> is = files.stream()
                 .filter(Objects::nonNull)
@@ -123,14 +123,14 @@ public class FindUtilImpl
                 .filter(Objects::nonNull)
                 .findFirst();
 
-        LOGGER.debug("findFirstFileAsOptionalStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
+        LOGGER.debug("findOptionalInputStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
         return is;
         // CPD-ON
     }
 
     @Override
     public InputStream findFirstFileAsStream(final String... filesAsVarArgs) {
-        return findFirstFileAsOptionalStream(filesAsVarArgs)
+        return findOptionalInputStream(filesAsVarArgs)
                 .orElseThrow(
                         () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
