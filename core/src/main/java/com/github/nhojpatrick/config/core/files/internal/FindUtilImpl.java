@@ -26,7 +26,8 @@ public class FindUtilImpl
     private static final Logger LOGGER = LoggerFactory.getLogger(FindUtilImpl.class);
 
     @Override
-    public File findFirstFileAsFile(final String... filesAsVarArgs) {
+    public File findFile(final String... filesAsVarArgs) {
+        LOGGER.debug("findFile('{}')", new Object[]{filesAsVarArgs});
         return findOptionalFile(filesAsVarArgs)
                 .orElseThrow(
                         () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
