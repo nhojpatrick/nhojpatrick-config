@@ -87,6 +87,14 @@ public class FindUtilImpl
         // CPD-ON
     }
 
+    @Override
+    public InputStream findInputStream(final String... filesAsVarArgs) {
+        LOGGER.debug("findInputStream('{}')", new Object[]{filesAsVarArgs});
+        return findOptionalInputStream(filesAsVarArgs)
+                .orElseThrow(
+                        () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
+    }
+
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "ccepted will look at changing")
     @Override
@@ -126,13 +134,6 @@ public class FindUtilImpl
         LOGGER.debug("findOptionalInputStream('{}') files '{}' found '{}'", filesAsVarArgs, files, is);
         return is;
         // CPD-ON
-    }
-
-    @Override
-    public InputStream findFirstFileAsStream(final String... filesAsVarArgs) {
-        return findOptionalInputStream(filesAsVarArgs)
-                .orElseThrow(
-                        () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
 
 }
