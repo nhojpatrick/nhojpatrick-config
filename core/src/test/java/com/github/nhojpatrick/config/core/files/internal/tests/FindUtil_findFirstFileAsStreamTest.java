@@ -9,10 +9,7 @@ import org.junit.jupiter.api.function.Executable;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.Optional;
 
-import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsEmpty;
-import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsPresent;
 import static java.nio.charset.StandardCharsets.UTF_8;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;

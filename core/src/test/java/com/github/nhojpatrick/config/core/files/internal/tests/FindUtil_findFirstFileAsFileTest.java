@@ -7,10 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.function.Executable;
 
 import java.io.File;
-import java.util.Optional;
 
-import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsEmpty;
-import static com.github.nhojpatrick.hamcrest.optionals.IsOptional.optionalIsPresent;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsEqual.equalTo;
