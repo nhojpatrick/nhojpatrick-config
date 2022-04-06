@@ -12,7 +12,14 @@ public interface FindUtil {
         return new FindUtilImpl();
     }
 
-    File findFirstFileAsFile(String... filesAsVarArgs);
+    /**
+     * Find {@link java.io.File} by searching list of {@code filePaths}.
+     *
+     * @param filePaths a list of potential files.
+     * @return the {@link java.io.File} if found, otherwise throw {@link java.lang.RuntimeException}.
+     * @throws RuntimeException if file not found.
+     */
+    File findFile(String... filePaths);
 
     /**
      * Find optional {@link java.io.File} by searching list of {@code filePaths}.
