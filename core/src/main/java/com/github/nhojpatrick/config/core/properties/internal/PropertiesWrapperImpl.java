@@ -66,7 +66,7 @@ public class PropertiesWrapperImpl
 
         for (final String fileAsStr : files) {
 
-            final URL fileAsUrl = PropertiesWrapperImpl.class.getResource(fileAsStr);
+            final URL fileAsUrl = loadAsURL(fileAsStr);
             if (fileAsUrl == null) {
                 continue;
             }
@@ -89,6 +89,26 @@ public class PropertiesWrapperImpl
         }
 
         this.config = config;
+    }
+
+    /**
+     * Pre JPMS vs Post JPMS logic needs to be handled here.
+     *
+     * @param fileAsStr the source file.
+     * @return the URL.
+     */
+    private URL loadAsURL(String fileAsStr) {
+        LOGGER.debug("loadAsURL('{}')", fileAsStr);
+        URL url = PropertiesWrapperImpl.class.getResource(fileAsStr);
+        if (url == null
+                && fileAsStr != null
+                && fileAsStr.startsWith("/")) {
+            final String fileAsStrJPMS = fileAsStr.substring(1, fileAsStr.length());
+            LOGGER.debug("loadAsURL('{}') trying '{}'", fileAsStr, fileAsStrJPMS);
+            url = ClassLoader.getSystemResource(fileAsStrJPMS);
+        }
+        LOGGER.debug("loadAsURL('{}') url='{}'", fileAsStr, url);
+        return url;
     }
 
 }
