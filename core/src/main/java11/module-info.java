@@ -10,7 +10,7 @@ module com.github.nhojpatrick.config.core {
             to com.github.nhojpatrick.config.core.test;
     requires com.github.spotbugs.annotations;
     requires org.apache.commons.collections4;
-    requires org.apache.commons.configuration2;
     requires org.apache.commons.lang3;
     requires org.slf4j;
+    requires transitive org.apache.commons.configuration2;
 }

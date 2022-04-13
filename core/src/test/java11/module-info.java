@@ -3,6 +3,7 @@ open module com.github.nhojpatrick.config.core.test {
     requires com.github.nhojpatrick.hamcrest.collections;
     requires com.github.nhojpatrick.hamcrest.lang;
     requires com.github.nhojpatrick.hamcrest.optionals;
+    requires org.apache.commons.io;
     requires org.apache.logging.log4j;
     requires org.hamcrest;
     requires org.junitpioneer;
