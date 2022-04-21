@@ -34,4 +34,8 @@ public class FileUtil {
         return safeDirectoryName;
     }
 
+    public FileUtil() {
+        throw new AssertionError("Static utility class - cannot be instantiated.");
+    }
+
 }
