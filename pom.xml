@@ -1048,7 +1048,7 @@
 		<version.org.junit-pioneer>1.9.1</version.org.junit-pioneer>
 		<version.org.junit>5.9.2</version.org.junit>
 		<version.org.mockito>5.1.1</version.org.mockito>
-		<version.org.slf4j>2.0.6</version.org.slf4j>
+		<version.org.slf4j>2.0.7</version.org.slf4j>
 		<!-- qa user properties -->
 		<checkstyle.maxAllowedViolations>0</checkstyle.maxAllowedViolations>
 		<jacoco.bundle.class.missedcount>0</jacoco.bundle.class.missedcount>
