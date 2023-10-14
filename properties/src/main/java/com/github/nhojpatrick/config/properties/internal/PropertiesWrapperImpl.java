@@ -1,6 +1,7 @@
 package com.github.nhojpatrick.config.properties.internal;
 
 import com.github.nhojpatrick.config.properties.PropertiesWrapper;
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.configuration2.CombinedConfiguration;
 import org.apache.commons.configuration2.Configuration;
@@ -37,6 +38,8 @@ public class PropertiesWrapperImpl
 
     private final Configuration config;
 
+    @SuppressFBWarnings(value = {"CT_CONSTRUCTOR_THROW"},
+            justification = "accepted")
     public PropertiesWrapperImpl(final String... filesAsVarArgs)
             throws ConfigurationException,
             URISyntaxException {

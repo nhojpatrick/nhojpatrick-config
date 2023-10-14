@@ -1,5 +1,6 @@
 package com.github.nhojpatrick.config.files;
 
+import edu.umd.cs.findbugs.annotations.SuppressFBWarnings;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,6 +35,8 @@ public class FileUtil {
         return safeDirectoryName;
     }
 
+    @SuppressFBWarnings(value = {"CT_CONSTRUCTOR_THROW"},
+            justification = "accepted")
     public FileUtil() {
         throw new AssertionError("Static utility class - cannot be instantiated.");
     }
