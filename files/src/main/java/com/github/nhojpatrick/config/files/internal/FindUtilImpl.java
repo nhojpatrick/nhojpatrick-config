@@ -34,7 +34,7 @@ public class FindUtilImpl
     }
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
-            justification = "ccepted will look at changing")
+            justification = "accepted will look at changing")
     @Override
     public Optional<File> findOptionalFile(final String... filesAsVarArgs) {
 
@@ -96,7 +96,7 @@ public class FindUtilImpl
     }
 
     @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
-            justification = "ccepted will look at changing")
+            justification = "accepted will look at changing")
     @Override
     public Optional<InputStream> findOptionalInputStream(final String... filesAsVarArgs) {
 
