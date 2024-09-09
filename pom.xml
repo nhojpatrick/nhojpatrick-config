@@ -1101,7 +1101,7 @@
 		<version.junit>4.13.2</version.junit>
 		<version.org.apache.commons.collections4>4.4</version.org.apache.commons.collections4>
 		<version.org.apache.commons.configuration2>2.11.0</version.org.apache.commons.configuration2>
-		<version.org.apache.commons.lang3>3.16.0</version.org.apache.commons.lang3>
+		<version.org.apache.commons.lang3>3.17.0</version.org.apache.commons.lang3>
 		<version.org.apache.logging.log4j>2.23.1</version.org.apache.logging.log4j>
 		<version.org.hamcrest>3.0</version.org.hamcrest>
 		<version.org.junit-pioneer>1.9.1</version.org.junit-pioneer>
