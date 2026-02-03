@@ -38,7 +38,7 @@ public class PropertiesWrapperImpl
 
     private final Configuration config;
 
-    @SuppressFBWarnings(value = {"CT_CONSTRUCTOR_THROW"},
+    @SuppressFBWarnings(value = {"CT_CONSTRUCTOR_THROW", "FII_USE_ARRAYS_STREAM"},
             justification = "accepted")
     public PropertiesWrapperImpl(final String... filesAsVarArgs)
             throws ConfigurationException,
