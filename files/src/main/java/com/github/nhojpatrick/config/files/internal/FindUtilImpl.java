@@ -33,7 +33,7 @@ public class FindUtilImpl
                         () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
 
-    @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
+    @SuppressFBWarnings(value = {"FII_USE_ARRAYS_STREAM", "FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
             justification = "accepted will look at changing")
     @Override
     public Optional<File> findOptionalFile(final String... filesAsVarArgs) {
@@ -95,7 +95,7 @@ public class FindUtilImpl
                         () -> new RuntimeException(String.format("No File found from '%s'", asList(filesAsVarArgs))));
     }
 
-    @SuppressFBWarnings(value = {"FII_USE_METHOD_REFERENCE", "SLF4J_UNKNOWN_ARRAY"},
+    @SuppressFBWarnings(value = {"FII_USE_ARRAYS_STREAM"},
             justification = "accepted will look at changing")
     @Override
     public Optional<InputStream> findOptionalInputStream(final String... filesAsVarArgs) {
